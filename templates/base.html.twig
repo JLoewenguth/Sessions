@@ -14,6 +14,7 @@
         {% endblock %}
     </head>
     <body>
+        <a href="{{ path('app_home') }}">Accueil</a>
         {% if app.user %}
             <a href="{{ path('app_logout') }}">Se déconnecter</a>
             <a href="{{ path('app_profil') }}">Mon profil</a>
@@ -23,7 +24,7 @@
         {% endif %}
 
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="">Panneau admin</a>
+            <a href="{{ path('app_admin') }}">Panneau admin</a>
         {% endif %}
         {% block body %}{% endblock %}
     </body>

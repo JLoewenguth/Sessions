@@ -9,9 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Bonjour {{ app.user.pseudo }} !  ✅</h1>
+    {% if app.user %}
+        <h1>Bonjour {{ app.user.pseudo }} !  ✅</h1>
+    {% else %}
+        <h1>Bonjour visiteur !  ✅</h1>
+    {% endif %}
+    
 
-    kpokpko pokpok pokpok ppokpok :
+    Liste des sessions :
     <ul>
         <li>ligne 1</li>
         <li>ligne 2</li>

@@ -177,4 +177,17 @@ class Session
         return $this;
     }
 
+
+    public function showAction($sessionId){
+        $session = $this->getDoctrine()
+        ->getRepository(Session::class)
+        ->find($sessionId);
+
+    if (!$session) {
+        throw $this->createNotFoundException(
+            'Aucune session à afficher.'.$sessionId
+        );
+    }
+    }
+
 }

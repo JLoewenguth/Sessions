@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil, Flan Formation{% endblock %}
 
 {% block body %}
 <style>
@@ -17,10 +17,10 @@
     
 
     Liste des sessions :
-    <ul>
-        <li>ligne 1</li>
-        <li>ligne 2</li>
-    </ul>
+    
+    {% for session in sessions %}
+        </br>{{ session.nom_session }}
+    {% endfor %}
 
 </div>
 {% endblock %}

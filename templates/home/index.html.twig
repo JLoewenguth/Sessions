@@ -25,11 +25,11 @@
             <th>Nombre de places</th>
             <th>Formateur</th>
         </tr>
-        <tr>
+        
     {% for session in sessions %}
-        <tr><td>{{ session.nomSession }} {{ session }} {{ session.nbrPlace}} formateur</td></tr>
+        <tr><td>{{ session.nomSession }} </td><td> {{ session }} </td><td> {{ session.nbrPlace}} </td><td> formateur</td></tr>
     {% endfor %}
-        </tr>
+        
     </table>
 
 </div>

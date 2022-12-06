@@ -18,9 +18,19 @@
 
     Liste des sessions :
     
+    <table>
+        <tr>
+            <th>Session</th>
+            <th>Début</th>
+            <th>Nombre de places</th>
+            <th>Formateur</th>
+        </tr>
+        <tr>
     {% for session in sessions %}
-        </br>{{ session.nom_session }}
+        <tr><td>{{ session.nomSession }} {{ session }} {{ session.nbrPlace}} formateur</td></tr>
     {% endfor %}
+        </tr>
+    </table>
 
 </div>
 {% endblock %}

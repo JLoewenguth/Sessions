@@ -14,20 +14,11 @@ class HomeController extends AbstractController
     
     public function index(ManagerRegistry $doctrine): Response
     {
-        //cherche les sessions dans la BDD
-        $sessions = $doctrine->getRepository(Session::class)->findAll();
+        //cherche les sessions dans la BDD, classé par date
+        $sessions = $doctrine->getRepository(Session::class)->findBy([], ["date_debut" => "ASC"]);
         return $this->render('home/index.html.twig', [
             'sessions' => $sessions
         ]);
     }
     
-    
-    /*public function index(): Response
-    {
-        $sessions = ["1","2","3"];    
-        return $this->render('home/index.html.twig', [
-            'nom_session' => 's1',
-            'sessions' => $sessions
-        ]);
-    }*/
 }

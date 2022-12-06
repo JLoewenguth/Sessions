@@ -190,4 +190,11 @@ class Session
     }
     }
 
+    public function __toString():string
+    {
+        $debut = $this->date_debut->format('Y-m-d');
+        return $debut;
+    }
+
+
 }

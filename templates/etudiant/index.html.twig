@@ -10,21 +10,24 @@
 
 <div class="example-wrapper">
     <h1>Ajouter un étudiant</h1>
-
+    <!-- ajouter un étudiant en BDD -->
     {{ form(formAddEtudiant) }}
 
     <h1>Liste des étudiants</h1>
-
+    <!-- tableau des étudians, édition, suppression -->
     <table>
         <tr>
-            <th>Nom</th>
             <th>Prénom</th>
+            <th>Nom</th>
             <th>email</th>
             <th>N° téléphone</th>
         </tr>
         
     {% for etudiant in etudiants %}
-        <tr><td>{{ etudiant.nomEtudiant }} </td><td> {{ etudiant.prenomEtudiant }} </td><td> {{ etudiant.emailEtudiant }} </td><td> {{ etudiant.phoneEtudiant }} </td></tr>
+        <tr><td>{{ etudiant.prenomEtudiant }} </td><td> {{ etudiant.nomEtudiant }} </td><td>
+        {{ etudiant.emailEtudiant }} </td><td> {{ etudiant.phoneEtudiant }} </td><td>
+        <a href="{{ path('edit_etudiant',{'id':etudiant.id}) }}">Editer</a> </td><td>
+        <a href="{{ path('delete_etudiant',{'id':etudiant.id}) }}">Supprimer</a> </td</tr>
     {% endfor %}
         
     </table>

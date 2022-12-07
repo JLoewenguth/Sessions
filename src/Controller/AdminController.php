@@ -20,18 +20,5 @@ class AdminController extends AbstractController
         ]);
     }
 
-    
 
-    /*public function new(Request $request): Response
-    {
-        $etudiant = new Etudiant();
-        $etudiant->setEtudiant('Ajouter un étudiant');
-
-        $form = $this->createFormBuilder($etudiant)
-            ->add('nomEtudiant', TextType::class)
-            ->add('prenomEtudiant', TextType::class)
-            ->add('emailEtudiant', TextType::class)
-            ->add('phoneEtudiant', TextType::class);
-            
-    }*/
 }

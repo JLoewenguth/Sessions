@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Etudiant;
+use App\Entity\Session;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,16 +12,18 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class EtudiantType extends AbstractType
+
+class SessionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom_etudiant', TextType::class)
-            ->add('prenom_etudiant', TextType::class)
-            ->add('email_etudiant', TextType::class)
-            ->add('phone_etudiant', TextType::class)
-            //->add('sessions') entitytype + paramètres     
+            ->add('nom_session')
+            ->add('date_debut')
+            ->add('date_fin')
+            ->add('nbr_place')
+            //->add('formateur')
+            //->add('etudiants')
             ->add('ajouter', SubmitType::class)
         ;
     }
@@ -29,7 +31,7 @@ class EtudiantType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Etudiant::class,
+            'data_class' => Session::class,
         ]);
     }
 }

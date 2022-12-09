@@ -178,22 +178,21 @@ class Session
     }
 
 
-    public function showAction($sessionId){
-        $session = $this->getDoctrine()
-        ->getRepository(Session::class)
-        ->find($sessionId);
+    // public function showAction($sessionId){
+    //     $session = $this->getDoctrine()
+    //     ->getRepository(Session::class)
+    //     ->find($sessionId);
 
-    if (!$session) {
-        throw $this->createNotFoundException(
-            'Aucune session à afficher.'.$sessionId
-        );
-    }
-    }
+    // if (!$session) {
+    //     throw $this->createNotFoundException(
+    //         'Aucune session à afficher.'.$sessionId
+    //     );
+    // }
+    // }
 
     public function __toString():string
     {
-        $debut = $this->date_debut->format('Y-m-d');
-        return $debut;
+        return $this->nom_session;
     }
 
 

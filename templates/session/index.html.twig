@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SessionController!{% endblock %}
+{% block title %}Liste des sessions{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,15 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Ajouter un étudiant</h1>
-    <!-- ajouter un étudiant en BDD -->
+    <h1>Ajouter une session</h1>
+    <!-- ajouter une session en BDD -->
     {{ form(formAddSession) }}
+    
+    <!-- retour à la page admin -->
+    <a href="{{ path('app_admin') }}">Retour</a>
 
-    <h1>Liste des étudiants</h1>
-    <!-- tableau des étudians, édition, suppression -->
+    <h1>Liste des sessions</h1>
+    <!-- tableau des session, édition, suppression -->
     <table>
         <tr>
             <th>Nom</th>
@@ -24,8 +27,8 @@
         </tr>
         
     {% for session in sessions %}
-        <tr><td>{{ session.nomSession }} </td><td> {{ session.dateDebut }} </td><td>
-        {{ session.dateFin }} </td><td> {{ session.nbrPlace }} </td><td>
+        <tr><td>{{ session.nomSession }} </td><td> {{ session.dateDebut | date('y-m-d') }} </td><td>
+        {{ session.dateFin | date('y-m-d') }} </td><td> {{ session.nbrPlace }} </td><td>
         <a href="{{ path('edit_session',{'id':session.id}) }}">Editer</a> </td><td>
         <a href="{{ path('delete_session',{'id':session.id}) }}">Supprimer</a> </td</tr>
     {% endfor %}

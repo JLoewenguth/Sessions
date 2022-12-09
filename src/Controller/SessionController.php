@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Session;
-use Doctrine\ORM\EntityManager;
+use App\Form\SessionType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
 class SessionController extends AbstractController
 {

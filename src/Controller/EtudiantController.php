@@ -22,7 +22,7 @@ class EtudiantController extends AbstractController
             $etudiant = new Etudiant();
         }
 
-        $etudiants = $doctrine->getRepository(Etudiant::class)->findBy([],["id"=>"DESC"]);
+        $etudiants = $doctrine->getRepository(Etudiant::class)->findBy([],["nom_etudiant"=>"ASC"]);
         $form = $this->createForm(EtudiantType::class, $etudiant);
         $form->handleRequest($request);
 

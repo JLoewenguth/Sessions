@@ -22,7 +22,7 @@ class FormateurController extends AbstractController
             $formateur = new Formateur();
         }
 
-        $formateurs = $doctrine->getRepository(Formateur::class)->findBy([],["id"=>"DESC"]);
+        $formateurs = $doctrine->getRepository(Formateur::class)->findBy([],["nom_formateur"=>"ASC"]);
         $form = $this->createForm(FormateurType::class, $formateur);
         $form->handleRequest($request);
 

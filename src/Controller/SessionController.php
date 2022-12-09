@@ -17,12 +17,12 @@ class SessionController extends AbstractController
 
     public function add(ManagerRegistry $doctrine, Session $session = null, Request $request): Response
     {
-        //création d'une nouvelle session ou modification d'un existant
+        //création d'une nouvelle session ou modification d'une existante
         if (!$session){
             $session = new Session();
         }
 
-        $sessions = $doctrine->getRepository(Session::class)->findBy([],["id"=>"DESC"]);
+        $sessions = $doctrine->getRepository(Session::class)->findBy([],["date_debut"=>"ASC"]);
         $form = $this->createForm(SessionType::class, $session);
         $form->handleRequest($request);
 

@@ -17,6 +17,7 @@
     <a href="{{ path('app_admin') }}">Retour</a>
 
     <h1>Liste des sessions</h1>
+    classés par date
     <!-- tableau des session, édition, suppression -->
     <table>
         <tr>
@@ -27,8 +28,8 @@
         </tr>
         
     {% for session in sessions %}
-        <tr><td>{{ session.nomSession }} </td><td> {{ session.dateDebut | date('y-m-d') }} </td><td>
-        {{ session.dateFin | date('y-m-d') }} </td><td> {{ session.nbrPlace }} </td><td>
+        <tr><td>{{ session.nomSession }} </td><td> {{ session.dateDebut | date('d-m-Y') }} </td><td>
+        {{ session.dateFin | date('d-m-Y') }} </td><td> {{ session.nbrPlace }} </td><td>
         <a href="{{ path('edit_session',{'id':session.id}) }}">Editer</a> </td><td>
         <a href="{{ path('delete_session',{'id':session.id}) }}">Supprimer</a> </td</tr>
     {% endfor %}

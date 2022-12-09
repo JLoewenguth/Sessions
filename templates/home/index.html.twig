@@ -12,22 +12,25 @@
     {% if app.user %}
         <h1>Bonjour {{ app.user.pseudo }} !  ✅</h1>
     {% else %}
-        <h1>Bonjour visiteur !  ✅</h1>
+        <h1>Bonjour visiteur !  👋</h1>
     {% endif %}
     
 
-    Liste des sessions :
+    Liste des sessions en cours et à venir :
     
     <table>
         <tr>
             <th>Session</th>
-            <th>Début</th>
+            <th> Date de début </th>
+            <th> Date de fin </th>
             <th>Nombre de places</th>
             <th>Formateur</th>
         </tr>
         
     {% for session in sessions %}
-        <tr><td>{{ session.nomSession }} </td><td> {{ session }} </td><td> {{ session.nbrPlace}} </td><td> formateur</td></tr>
+        <tr><td>{{ session.nomSession }} </td><td> {{ session.dateDebut | date('j M Y') }}
+        </td><td> {{ session.dateFin | date('j M Y') }} </td><td>
+        {{ session.nbrPlace}} </td><td> formateur</td></tr>
     {% endfor %}
         
     </table>
